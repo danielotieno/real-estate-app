@@ -7,7 +7,7 @@
                 <span arial-hidden="true">&times;</span>
                 </button>
                 <strong>
-                    {% if message.level == DEFAULT_MESSAGE_LEVEL.ERROR %}
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
                         Error:
                     {% else %}
                         {{ message.tags | title }}
