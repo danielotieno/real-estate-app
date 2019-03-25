@@ -57,6 +57,13 @@ def search(request):
             queryset_list = queryset_list.filter(
                 bedrooms__lte=bedrooms)
 
+    # price
+    if 'price' in request.GET:
+        price = request.GET['price']
+        if price:
+            queryset_list = queryset_list.filter(
+                price__lte=price)
+
     context = {
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
