@@ -12,7 +12,10 @@
             <i class="fas fa-sign-in-alt"></i> Login</h4>
         </div>
         <div class="card-body">
-            <form action="{{ url 'login' }}" method="POST">
+        <!--Alerts messages -->
+            {% include "partials/_alertsms.html" %}
+
+            <form action="{% url 'login' %}" method="POST">
                 {% csrf_token %}
             <div class="form-group">
                 <label for="username">Username</label>
