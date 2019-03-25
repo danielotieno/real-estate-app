@@ -29,11 +29,19 @@ def listing(request, listing_id):
 def search(request):
     queryset_list = Listing.objects.order_by('-list_date')
 
+    # Keywords
     if 'keywords' in request.GET:
         keywords = request.GET['keywords']
         if keywords:
             queryset_list = queryset_list.filter(
                 description__icontains=keywords)
+
+    # City
+    if 'city' in request.GET:
+        city = request.GET['city']
+        if city:
+            queryset_list = queryset_list.filter(
+                city__iexact=city)
 
     context = {
         'bedroom_choices': bedroom_choices,
